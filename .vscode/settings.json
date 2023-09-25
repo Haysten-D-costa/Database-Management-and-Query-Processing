@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "CollegeDBMQP",
+            "database": "21co56",
+            "username": "root",
+            "askForPassword": true
+        }
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
+}
