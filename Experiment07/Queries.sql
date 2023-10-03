@@ -1,17 +1,17 @@
 -- Query 01 List name and salary of only those employees having salary more than any of the 
 --          employee working as Analyst.
 SELECT E_name, E_salary FROM emp_21co56
-WHERE E_salary > (
-    SELECT min(E_salary) FROM emp_21co56
+WHERE E_salary > ANY(
+    SELECT E_salary FROM emp_21co56
     WHERE E_job="Analyst"
 );
 
 -- Query 02 List name and salary of only those employees having salary more than every employee 
 -- working as Analyst.
 SELECT E_name, E_salary FROM emp_21co56
-WHERE E_salary > (
-    SELECT min(E_salary) FROM emp_21co56
-    WHERE E_job="Analyst"
+WHERE E_salary > ALL(
+    SELECT E_salary FROM emp_21co56
+    WHERE E_job = "Analyst" 
 );
 
 -- Query 03 Display the employee who got the maximum salary
@@ -49,7 +49,13 @@ WHERE D_id = (
 
 
 -- Query 09 Find the employee with the second highest salary in the employee table
-
+SELECT E_id, E_name, E_salary FROM emp_21co56
+WHERE E_salary = (
+    SELECT max(E_salary) FROM emp_21co56
+    WHERE E_salary != (
+        SELECT max(E_salary) FROM emp_21co56
+    )
+);
 
 -- Query 10. Find out the employees who earned the highest Salary in each job typed sort in 
 -- descending Salary order.
