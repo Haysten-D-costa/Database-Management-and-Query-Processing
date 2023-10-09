@@ -28,7 +28,7 @@ CREATE TABLE emp_21co56
 
 -- -> 3) Alter the emp table by making mid foreign key referring to eid primary key of emp table....
 ALTER TABLE emp_21co56
-ADD FOREIGN KEY(M_id) REFERENCES emp_21co56(D_id);
+ADD FOREIGN KEY(M_id) REFERENCES emp_21co56(E_id) ON DELETE CASCADE;
 
 -- -> 4) Insert the records in emp table....
 INSERT INTO emp_21co56 VALUES
