@@ -70,7 +70,7 @@ RIGHT OUTER JOIN emp_21co56 AS e
 ON d.Mgr_id=e.M_id;
 
 -- full outer join...
-SELECT e.E_id, d.D_name --MySQL doesn't support FULL OUTER JOIN hence we use UNION....
+SELECT e.E_id, d.D_name 
 FROM dept_21co56 AS d
 LEFT OUTER JOIN emp_21co56 AS e 
 ON d.Mgr_id=e.M_id 
