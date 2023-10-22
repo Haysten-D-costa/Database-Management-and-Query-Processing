@@ -1,20 +1,18 @@
 -- Creating Table as per requirements....
 CREATE TABLE Sales
 (
-    O_id int(5) PRIMARY KEY, 
+    O_id number(5) PRIMARY KEY, 
     O_name varchar(20), 
     Previous_balance int(5),
     Customer varchar(20)
 );
 
 -- Inserting data as per requirements....
-INSERT INTO Sales
-VALUES
-(11, "ord1", 2000, "Alex"),
-(12, "ord2", 1000, "Adam"),
-(13, "ord3", 2000, "Abhi"),
-(14, "ord4", 1000, "Adam"),
-(15, "ord5", 2000, "Alex");
+INSERT INTO Sales VALUES (11, 'ord1', 2000, 'Alex');
+INSERT INTO Sales VALUES (12, 'ord2', 1000, 'Adam');
+INSERT INTO Sales VALUES (13, 'ord3', 2000, 'Abhi');
+INSERT INTO Sales VALUES (14, 'ord4', 1000, 'Adam');
+INSERT INTO Sales VALUES (15, 'ord5', 2000, 'Alex');
 
 -- Create a  view "Sale(rollno)1" containing all the details from the sale table.
 CREATE VIEW Sales_21co56_01 
@@ -52,14 +50,13 @@ WHERE O_id = 11;
 SELECT * FROM Sales;
 SELECT * FROM Sales_21co56_01;
 
--- Create Sale(rollno)5 view for sale table containing all details of sale table. Use read only clause and test by using update statement....
+-- Create Sale(rollno)5 view for sale table containing all details of sale table. Use read only clause and test by using insert statement....
 CREATE VIEW Sales_21co56_05
 AS SELECT * FROM Sales
 WITH READ ONLY;
 
-UPDATE Sales_21co56_05
-SET O_name = "Aryann"
-WHERE O_id = 13;
+INSERT INTO Sales_21co56_05 -- read-only test query....
+VALUES (16, 'ord6', 3000, 'Amey');
 
 -- Drop view  Sale(rollno)5....
 DROP VIEW Sales_21co56_05;
