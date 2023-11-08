@@ -1,7 +1,7 @@
 -- Creating Table as per requirements....
 CREATE TABLE Sales
 (
-    O_id number(5) PRIMARY KEY, 
+    O_id int(5) PRIMARY KEY, 
     O_name varchar(20), 
     Previous_balance int(5),
     Customer varchar(20)
