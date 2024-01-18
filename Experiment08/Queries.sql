@@ -43,12 +43,16 @@ AS SELECT * FROM Sales
 WHERE O_id IN (13, 14) 
 WITH CHECK OPTION;
 
+-- Testing : 
+INSERT INTO v4 VALUES (15, "ord5", 5000, "Amit");- insertion...
+UPDATE v4 SET O_id=20 WHERE O_name="ord3"; -- updation...
+
 -- Delete a record in Sale(rollno)1 and then display the contents of sale(rollno)1 and Sales tables....
-DELETE FROM Sales_21co56_01
+DELETE FROM v1
 WHERE O_id = 11;
 
 SELECT * FROM Sales;
-SELECT * FROM Sales_21co56_01;
+SELECT * FROM v1;
 
 -- Create Sale(rollno)5 view for sale table containing all details of sale table. Use read only clause and test by using insert statement....
 CREATE VIEW Sales_21co56_05

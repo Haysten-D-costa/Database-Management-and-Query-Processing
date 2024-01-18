@@ -54,7 +54,7 @@ SELECT * FROM Employee_21co56;
 
 -- 5. Find all names (both first name and last name) in the customer table that don’t exist in the employee table.(minus)
 SELECT * FROM Customer_21co56
-MINUS -- EXCEPT(in MySQL)
+EXCEPT
 SELECT * FROM Employee_21co56;
 
 -- 6. Find all names that are in both the customer and employee table.(intersect)

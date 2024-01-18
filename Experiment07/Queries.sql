@@ -50,23 +50,21 @@ WHERE D_id = (
 
 -- Query 08 List out the employees who earn more than the average salary of their department order 
 -- by department number.
-SELECT e.E_id, e.E_name, e.E_salary, e.D_id
-FROM emp_21co56 e
-INNER JOIN (
-    SELECT D_id, AVG(E_salary) AS avg_salary
-    FROM emp_21co56
-    GROUP BY D_id
-) AS avg_salaries
-ON e.D_id = avg_salaries.D_id
-WHERE e.E_salary > avg_salaries.avg_salary
-ORDER BY e.D_id;
+SELECT E_id, E_name, E_salary, D_id
+FROM emp_21co56
+WHERE E_salary > (
+    SELECT AVG(E_salary)
+    FROM emp_21co56 e2
+    WHERE e2.D_id = emp_21co56.D_id
+)
+ORDER BY D_id;
 
 -- Query 09 Find the employee with the second highest salary in the employee table
-SELECT E_id, E_name, E_salary FROM emp_21co56
+SELECT * FROM Emp_21co56
 WHERE E_salary = (
-    SELECT max(E_salary) FROM emp_21co56
+    SELECT max(E_salary) FROM Emp_21co56
     WHERE E_salary != (
-        SELECT max(E_salary) FROM emp_21co56
+        SELECT max(E_salary) FROM Emp_21co56
     )
 );
 
@@ -80,3 +78,4 @@ WHERE E_salary = (
     WHERE e2.E_job = e1.E_job
 )
 ORDER BY E_salary DESC;
+ 
